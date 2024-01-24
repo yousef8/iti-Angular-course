@@ -5,10 +5,11 @@
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    padding: 6rem;
 }
 
 #skillsSection p {
+    margin-top: 2rem;
     text-align: center;
 }
 
