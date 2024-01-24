@@ -1,0 +1,16 @@
+#footer {
+    background-color: #282923;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    animation-fill-mode: center;
+}
+
+#footer p {
+    margin-right: 1rem;
+}
+
+#footer a {
+    margin-right: .5rem;
+}
