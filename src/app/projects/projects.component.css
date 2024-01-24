@@ -1,0 +1,21 @@
+#portfolio {
+    padding: 2rem;
+    background-color: #282923;
+    color: white;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#projects {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects>.card {
+    margin-right: 1rem;
+}
