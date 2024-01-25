@@ -14,5 +14,6 @@ export class InputComponent {
 
   addTask(taskTitle: string) {
     this.newTask.emit(taskTitle);
+    this.taskTitle = "";
   }
 }
