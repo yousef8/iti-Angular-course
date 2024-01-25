@@ -12,7 +12,7 @@ import { ToDoListComponent } from '../to-do-list/to-do-list.component';
 export class ToDoWrapperComponent {
   toDoItem: string = '';
 
-  addTask(taskTitle: string) {
-    this.toDoItem = taskTitle;
+  addToDo(toDoTitle: string) {
+    this.toDoItem = toDoTitle;
   }
 }
