@@ -1,7 +1,10 @@
-.container {
+.card {
+    margin: 1rem;
+}
+
+.card-body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
 }
