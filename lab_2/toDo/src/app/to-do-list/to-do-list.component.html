@@ -1,7 +1,7 @@
 <div class="container">
     <ul>
         @for (item of toDoList; track $index) {
-        <app-to-do-item [todoItem]="item"></app-to-do-item>
+        <app-to-do-item [todoItem]="item" (deleteToDoItem)="deleteToDo($event)"></app-to-do-item>
         }
     </ul>
 </div>

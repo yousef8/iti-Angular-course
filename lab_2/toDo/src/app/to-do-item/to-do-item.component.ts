@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-to-do-item',
@@ -10,7 +10,12 @@ import { Component, Input } from '@angular/core';
 export class ToDoItemComponent {
   @Input() todoItem: string = '';
   isCompleted = false;
+  @Output() deleteToDoItem = new EventEmitter<string>();
 
+  delete(todoItem: string) {
+    this.deleteToDoItem.emit(todoItem);
+    this.isCompleted = false;
+  }
   toggleStatus() {
     this.isCompleted = !this.isCompleted;
   }

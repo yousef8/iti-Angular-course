@@ -1,6 +1,7 @@
 li {
     list-style: none;
     margin-left: 1rem;
+    flex-grow: 1;
 }
 
 .to-do-item {
@@ -8,6 +9,7 @@ li {
     flex-flow: row nowrap;
     align-items: center;
 }
+
 
 .to-do-item i {
     display: flex;
