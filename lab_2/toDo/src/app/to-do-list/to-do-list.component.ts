@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
+import { ToDoItemComponent } from '../to-do-item/to-do-item.component';
 
 @Component({
   selector: 'app-to-do-list',
   standalone: true,
-  imports: [],
+  imports: [ToDoItemComponent],
   templateUrl: './to-do-list.component.html',
   styleUrl: './to-do-list.component.css'
 })
 export class ToDoListComponent {
-  toDoList: Array<string> = ['yousef', 'omar', 'muhammed'];
+  toDoList: Array<string> = ['Buy Grocery', 'Go to Gym', 'Plan next week'];
 
   @Input()
   set toDoItem(title: string) {

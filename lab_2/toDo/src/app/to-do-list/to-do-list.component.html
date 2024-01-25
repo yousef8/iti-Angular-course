@@ -1,10 +1,7 @@
 <div class="container">
     <ul>
         @for (item of toDoList; track $index) {
-        <div class="to-do-item">
-            <i class="fa-regular fa-square"></i>
-            <li>{{item}}</li>
-        </div>
+        <app-to-do-item [todoItem]="item"></app-to-do-item>
         }
     </ul>
 </div>

@@ -4,25 +4,9 @@
     justify-content: center;
     align-items: center;
     color: #0F52BA;
+    font-size: x-large;
 }
 
 ul {
     padding: 0px;
-}
-
-li {
-    list-style: none;
-    margin-left: 1rem;
-}
-
-.to-do-item {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-}
-
-.to-do-item i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }

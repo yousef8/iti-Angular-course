@@ -1,0 +1,12 @@
+<div class="to-do-item">
+    <div class="to-do-status" (click)="toggleStatus()">
+        @if (isCompleted) {
+        <i class="fa-regular fa-square-check" style="color: green;"></i>
+        }@else{
+        <i class="fa-regular fa-square"></i>
+        }
+    </div>
+    <li [style]="{'text-decoration' : isCompleted ? 'line-through' : 'none', 
+        'color': isCompleted ? 'green' : '#0F52BA'}">
+        {{todoItem}}</li>
+</div>

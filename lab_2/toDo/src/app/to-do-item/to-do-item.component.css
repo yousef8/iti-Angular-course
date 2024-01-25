@@ -1,0 +1,17 @@
+li {
+    list-style: none;
+    margin-left: 1rem;
+}
+
+.to-do-item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.to-do-item i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
