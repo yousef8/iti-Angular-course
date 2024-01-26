@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="img">
+        <img [src]="product.thumbnail" alt="product image">
+    </div>
+    <div class="info">
+        <div class="name-price">
+            <h3>{{product.title}}</h3>
+            <h3>{{product.price | currency}}</h3>
+        </div>
+        <p>{{product.description}}</p>
+    </div>
+    <button class="button-17">Add to Cart</button>
+</div>
