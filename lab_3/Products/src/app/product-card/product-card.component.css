@@ -8,6 +8,11 @@
     border-radius: 15px;
 }
 
+.controls {
+    display: flex;
+    justify-content: space-around;
+}
+
 .stock {
     position: absolute;
     top: 1rem;

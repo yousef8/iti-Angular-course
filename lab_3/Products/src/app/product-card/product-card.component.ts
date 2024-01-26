@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-card',
@@ -14,4 +16,11 @@ export class ProductCardComponent {
     return new Array(Math.round(arg0)).fill(0).map((n, index) => index + 1);
   }
   @Input() product!: Product;
+
+  constructor(private router: Router) {
+  }
+
+  goToProductDetails() {
+    this.router.navigate(['/product', this.product.id]);
+  }
 }

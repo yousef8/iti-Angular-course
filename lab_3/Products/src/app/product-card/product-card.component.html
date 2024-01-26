@@ -23,7 +23,10 @@
         <p>{{product.description}}</p>
 
     </div>
-    <button class="button-17">Add to Cart</button>
+    <div class="controls">
+        <button class="button-17">Add to Cart</button>
+        <button class="button-17" (click)="goToProductDetails()">More Details</button>
+    </div>
 
     @if (product.stock > 0) {
     <div class="stock in-stock">In Stock</div>
