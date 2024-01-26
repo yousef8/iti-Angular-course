@@ -12,10 +12,11 @@ nav {
     color: black;
 }
 
-.navigation-buttons button {
+.navigation-buttons a {
     background-color: var(--primary-color);
-    border-radius: 8px;
-    border-width: 0;
+    /* border-radius: 8px; */
+    /* border-width: 0; */
+    text-decoration: none;
     color: #333333;
     cursor: pointer;
     display: inline-block;
@@ -35,6 +36,11 @@ nav {
     touch-action: manipulation;
 }
 
-.navigation-buttons button {
+.navigation-buttons a {
     margin: 0px .5rem;
+}
+
+.active-route {
+    color: green !important;
+    font-size: large !important;
 }

@@ -1,14 +1,14 @@
 <nav>
     <div class="logo">
-        <a routerLink="">
+        <a routerLink="" routerLinkActive="active-route" [routerLinkActiveOptions]="{exact:true}">
             Products App
         </a>
     </div>
 
     <div class="navigation-buttons">
-        <a routerLink="/register"><button>Register</button></a>
-        <a routerLink="/login">
-            <button>Login</button>
+        <a routerLink="/register" routerLinkActive="active-route">Register</a>
+        <a routerLink="/login" routerLinkActive="active-route">
+            Login
         </a>
 
     </div>
