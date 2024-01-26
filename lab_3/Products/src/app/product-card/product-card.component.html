@@ -7,7 +7,21 @@
             <h3>{{product.title}}</h3>
             <h3>{{product.price | currency}}</h3>
         </div>
+
+        <div class="rating">
+            <span class="stars" style="margin-right: 1rem;">
+                @for (item of createRange(product.rating) ; track $index) {
+                <i class="fa-solid fa-star" style="color: gold;"></i>
+                }
+
+                @for (i of createRange(5-product.rating); track $index) {
+                <i class="fa-regular fa-star" style="color: gold;"></i>
+                }
+            </span>
+            <span>{{product.rating}}</span>
+        </div>
         <p>{{product.description}}</p>
+
     </div>
     <button class="button-17">Add to Cart</button>
 

@@ -10,5 +10,8 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './product-card.component.css'
 })
 export class ProductCardComponent {
+  createRange(arg0: number) {
+    return new Array(Math.round(arg0)).fill(0).map((n, index) => index + 1);
+  }
   @Input() product!: Product;
 }
