@@ -2,6 +2,25 @@
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    position: relative;
+}
+
+.stock {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: .5rem;
+    color: white;
+    border-radius: 25px;
+    font-size: large;
+}
+
+.in-stock {
+    background-color: green;
+}
+
+.out-stock {
+    background-color: brown;
 }
 
 .img {
