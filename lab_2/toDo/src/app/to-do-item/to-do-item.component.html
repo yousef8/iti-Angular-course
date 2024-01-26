@@ -1,12 +1,12 @@
-<div class="to-do-item" [style]="{'color': isCompleted? 'green' :  '#0F52BA'}">
+<div class="to-do-item" [style]="{'color': todo.isComplete? 'green' :  '#0F52BA'}">
     <div class="to-do-status" (click)="toggleStatus()">
-        @if (isCompleted) {
+        @if (todo.isComplete) {
         <i class="fa-regular fa-square-check"></i>
         }@else{
         <i class="fa-regular fa-square"></i>
         }
     </div>
-    <li [style]="{'text-decoration' : isCompleted ? 'line-through' : 'none'}">
-        {{todoItem}}</li>
-    <i class="fa-solid fa-trash" (click)="delete(todoItem)"></i>
+    <li [style]="{'text-decoration' : todo.isComplete ? 'line-through' : 'none'}">
+        {{todo.title}}</li>
+    <i class="fa-solid fa-trash" (click)="delete()"></i>
 </div>

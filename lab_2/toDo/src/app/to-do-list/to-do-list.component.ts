@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ToDoItemComponent } from '../to-do-item/to-do-item.component';
+import { ToDo } from '../interfaces/to-do';
 
 @Component({
   selector: 'app-to-do-list',
@@ -9,16 +10,19 @@ import { ToDoItemComponent } from '../to-do-item/to-do-item.component';
   styleUrl: './to-do-list.component.css'
 })
 export class ToDoListComponent {
-  toDoList: Array<string> = ['Buy Grocery', 'Go to Gym', 'Plan next week'];
+  generateId: number = 3;
+  toDoList: Array<ToDo> = [{ id: 1, title: 'Grocery', isComplete: false },
+  { id: 2, title: 'Buy Milk', isComplete: false },
+  { id: 3, title: 'Go to gym', isComplete: false }];
 
-  deleteToDo(toDoItem: string) {
-    this.toDoList = this.toDoList.filter((item: string) => item !== toDoItem);
+  deleteToDo(id: number) {
+    this.toDoList = this.toDoList.filter((todo: ToDo) => todo.id !== id);
   }
 
   @Input()
   set toDoItem(title: string) {
     if (title.length) {
-      this.toDoList.push(title);
+      this.toDoList.push({ id: ++this.generateId, title: title, isComplete: false });
     }
   }
 }

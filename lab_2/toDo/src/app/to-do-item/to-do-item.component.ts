@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ToDo } from '../interfaces/to-do';
 
 @Component({
   selector: 'app-to-do-item',
@@ -8,15 +9,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './to-do-item.component.css'
 })
 export class ToDoItemComponent {
-  @Input() todoItem: string = '';
-  isCompleted = false;
-  @Output() deleteToDoItem = new EventEmitter<string>();
+  @Input() todo!: ToDo;
+  @Output() emitToDoDeletion = new EventEmitter<number>();
 
-  delete(todoItem: string) {
-    this.deleteToDoItem.emit(todoItem);
-    this.isCompleted = false;
+  delete() {
+    this.emitToDoDeletion.emit(this.todo.id);
   }
   toggleStatus() {
-    this.isCompleted = !this.isCompleted;
+    this.todo.isComplete = !this.todo.isComplete;
   }
 }

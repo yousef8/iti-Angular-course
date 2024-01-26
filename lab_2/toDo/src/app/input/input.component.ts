@@ -9,11 +9,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './input.component.css'
 })
 export class InputComponent {
-  @Output() newToDo = new EventEmitter<string>();
+  @Output() emitToDoTitle = new EventEmitter<string>();
   toDoTitle: string = '';
 
   addToDo(taskTitle: string) {
-    this.newToDo.emit(taskTitle);
+    this.emitToDoTitle.emit(taskTitle);
     this.toDoTitle = "";
   }
 }
