@@ -3,6 +3,9 @@
     display: flex;
     flex-flow: column nowrap;
     position: relative;
+    background-color: var(--primary-color);
+    padding: var(--padding);
+    border-radius: 15px;
 }
 
 .stock {
