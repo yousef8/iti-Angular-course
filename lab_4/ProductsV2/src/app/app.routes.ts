@@ -3,6 +3,7 @@ import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PageUnderConstructionComponent } from './page-under-construction/page-under-construction.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     {
@@ -15,7 +16,7 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        component: PageUnderConstructionComponent
+        component: LoginComponent
     },
     {
         path: 'register',
