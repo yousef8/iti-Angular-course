@@ -6,10 +6,9 @@
     </div>
 
     <div class="navigation-buttons">
-        <a routerLink="/register" routerLinkActive="active-route">Register</a>
-        <a routerLink="/login" routerLinkActive="active-route">
-            Login
-        </a>
+        <button (click)="routeToRegister()" routerLinkActive="active-route">Register</button>
+        <button (click)="routeToLogin()" routerLinkActive="active-route">Login</button>
+        <button><i class="fa-solid fa-cart-shopping" style="font-size: large;"></i></button>
 
     </div>
 </nav>

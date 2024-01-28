@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,5 +9,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  constructor(private router: Router) { }
 
+  routeToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  routeToLogin() {
+    this.router.navigate(['/login']);
+  }
 }
