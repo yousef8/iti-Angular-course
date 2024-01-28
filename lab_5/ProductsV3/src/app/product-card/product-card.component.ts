@@ -3,6 +3,7 @@ import { Product } from '../interfaces/product';
 import { CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { RatingComponent } from '../rating/rating.component';
+import { CartService } from '../services/cart.service';
 
 
 @Component({
@@ -18,10 +19,14 @@ export class ProductCardComponent {
   }
   @Input() product!: Product;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cart: CartService) {
   }
 
   goToProductDetails() {
     this.router.navigate(['/product', this.product.id]);
+  }
+
+  addToCart() {
+    this.cart.addItem(this.product);
   }
 }
