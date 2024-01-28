@@ -6,6 +6,9 @@ nav {
     align-items: center;
     padding: var(--padding);
     height: 5vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
 }
 
 .logo a {
