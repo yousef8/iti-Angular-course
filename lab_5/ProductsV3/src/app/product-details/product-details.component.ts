@@ -3,7 +3,7 @@ import { Product } from '../interfaces/product';
 import { CurrencyPipe, PercentPipe } from '@angular/common';
 import { RatingComponent } from '../rating/rating.component';
 import { Router } from '@angular/router';
-import { GamesService } from '../services/games.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,11 +16,11 @@ export class ProductDetailsComponent {
   @Input() id!: number;
   product?: Product;
 
-  constructor(private router: Router, private games: GamesService) {
+  constructor(private router: Router, private productsService: ProductsService) {
   }
 
   ngOnInit() {
-    this.games.getGameDetails(this.id).subscribe((product) => { this.product = product });
+    this.productsService.getGameDetails(this.id).subscribe((product) => { this.product = product });
   }
 
 }

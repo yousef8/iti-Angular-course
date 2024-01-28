@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { GamesService } from '../services/games.service';
+import { ProductsService } from '../services/products.service';
+import { ProductApiResponse } from '../interfaces/product-api-response';
 
 @Component({
   selector: 'app-products',
@@ -13,9 +14,9 @@ import { GamesService } from '../services/games.service';
 export class ProductsComponent {
   products!: Array<Product>;
 
-  constructor(private games: GamesService) { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.games.getList().subscribe((elem) => { this.products = elem.products });
+    this.productsService.getList().subscribe((elem: ProductApiResponse) => { this.products = elem.products });
   }
 }
