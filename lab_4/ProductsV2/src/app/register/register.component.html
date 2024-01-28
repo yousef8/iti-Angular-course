@@ -5,7 +5,7 @@
                 placeholder="name@example.com">
             <label for="floatingInput">Name</label>
 
-            <div [hidden]="registerForm.controls['name'].invalid && !registerForm.controls['name'].touched">
+            <div [hidden]="registerForm.controls['name'].invalid && !registerForm.controls['name'].touched ">
                 <app-form-error-msg [formInput]="registerForm.controls['name']" [validationType]="'required'"
                     [errorMsg]="'Required Field'"></app-form-error-msg>
 
@@ -65,6 +65,11 @@
                 [hidden]="registerForm.controls['confirmPassword'].invalid && !registerForm.controls['confirmPassword'].touched">
                 <app-form-error-msg [formInput]="registerForm.controls['confirmPassword']" [validationType]="'required'"
                     [errorMsg]="'Required Field'"></app-form-error-msg>
+
+                <div class="alert alert-danger" role="alert" [hidden]="!registerForm.errors?.['passwordMatchError']">
+                    Password Don't Match
+                </div>
+
             </div>
         </div>
 

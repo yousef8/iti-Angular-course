@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormErrorMsgComponent } from '../form-error-msg/form-error-msg.component';
+import { passwordMatch } from '../validators/password-match.validator';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,11 @@ export class RegisterComponent {
       username: ['', [Validators.required, Validators.pattern("^[a-z0-9_-]{3,15}$")]],
       password: ['', [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,32}$")]],
       confirmPassword: ['', [Validators.required]]
-    })
+    },
+      {
+        validators: passwordMatch
+      }
+    )
   }
 
   onSubmit() {
