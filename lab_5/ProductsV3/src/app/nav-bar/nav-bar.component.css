@@ -41,6 +41,16 @@ nav {
     margin: 0px .5rem;
 }
 
+.navigation-buttons button:last-child {
+    position: relative;
+}
+
+.navigation-buttons button:last-child span {
+    position: absolute;
+    top: -2px;
+    right: -7px;
+}
+
 .active-route {
     color: green !important;
     font-size: large !important;

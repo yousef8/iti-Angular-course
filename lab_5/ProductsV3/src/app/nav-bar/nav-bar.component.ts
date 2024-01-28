@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,7 +10,10 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  constructor(private router: Router) { }
+  cartSize: number = 0;
+  constructor(private router: Router, private cart: CartService) {
+    this.cart.getItemsCount().subscribe((size) => (this.cartSize = size));
+  }
 
   routeToRegister() {
     this.router.navigate(['/register']);
