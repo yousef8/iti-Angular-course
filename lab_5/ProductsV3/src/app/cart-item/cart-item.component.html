@@ -9,7 +9,7 @@
     <div class="quantity">
         <button (click)="increment()" type="button" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
         <h4>{{item.quantity}}</h4>
-        <button type="button" class="btn btn-secondary"><i class="fa-solid fa-minus"></i></button>
+        <button (click)="decrement()" type="button" class="btn btn-secondary"><i class="fa-solid fa-minus"></i></button>
     </div>
     <div class="delete">
         <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>

@@ -20,4 +20,8 @@ export class CartComponent {
   incrementItemQty(id: number) {
     this.cartService.incItemQty(id);
   }
+
+  decrementItemQty(id: number) {
+    this.cartService.decrementItemQty(id);
+  }
 }

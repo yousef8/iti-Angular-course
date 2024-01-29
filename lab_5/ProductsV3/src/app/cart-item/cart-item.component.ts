@@ -11,8 +11,13 @@ import { CartItem } from '../interfaces/cart-item';
 export class CartItemComponent {
   @Input() item!: CartItem;
   @Output() emitIncrementItemQty: EventEmitter<number> = new EventEmitter<number>();
+  @Output() emitDecrementItemQty: EventEmitter<number> = new EventEmitter<number>();
 
   increment() {
     this.emitIncrementItemQty.emit(this.item.id)
+  }
+
+  decrement() {
+    this.emitDecrementItemQty.emit(this.item.id);
   }
 }

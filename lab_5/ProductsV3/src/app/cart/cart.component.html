@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="items">
         @for (item of cart; track item.id) {
-        <app-cart-item [item]="item" (emitIncrementItemQty)="incrementItemQty($event)"></app-cart-item>
+        <app-cart-item [item]="item" (emitIncrementItemQty)="incrementItemQty($event)"
+            (emitDecrementItemQty)="decrementItemQty($event)"></app-cart-item>
         }
     </div>
 </div>

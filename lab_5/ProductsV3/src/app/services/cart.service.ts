@@ -51,4 +51,18 @@ export class CartService {
     this.updateItemsCount()
   }
 
+  decrementItemQty(id: number) {
+    const cart: Array<CartItem> = this.cart.value;
+    const item: CartItem | undefined = cart.find(item => item.id === id);
+    if (item == undefined) {
+      return;
+    }
+
+    if (item.quantity > 0) {
+      --item.quantity;
+    }
+    this.cart.next([...cart]);
+    this.updateItemsCount()
+  }
+
 }
