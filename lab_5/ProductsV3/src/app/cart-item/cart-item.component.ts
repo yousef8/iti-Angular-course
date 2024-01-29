@@ -12,6 +12,7 @@ export class CartItemComponent {
   @Input() item!: CartItem;
   @Output() emitIncrementItemQty: EventEmitter<number> = new EventEmitter<number>();
   @Output() emitDecrementItemQty: EventEmitter<number> = new EventEmitter<number>();
+  @Output() emitItemDeletion: EventEmitter<number> = new EventEmitter<number>();
 
   increment() {
     this.emitIncrementItemQty.emit(this.item.id)
@@ -19,5 +20,9 @@ export class CartItemComponent {
 
   decrement() {
     this.emitDecrementItemQty.emit(this.item.id);
+  }
+
+  delete() {
+    this.emitItemDeletion.emit(this.item.id);
   }
 }

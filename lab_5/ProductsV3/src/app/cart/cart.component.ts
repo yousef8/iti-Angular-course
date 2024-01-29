@@ -24,4 +24,8 @@ export class CartComponent {
   decrementItemQty(id: number) {
     this.cartService.decrementItemQty(id);
   }
+
+  deleteItem(id: number) {
+    this.cartService.deleteItem(id);
+  }
 }

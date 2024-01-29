@@ -58,11 +58,21 @@ export class CartService {
       return;
     }
 
-    if (item.quantity > 0) {
-      --item.quantity;
+    if (item.quantity < 2) {
+      this.deleteItem(id);
+      return;
     }
+
+    --item.quantity;
     this.cart.next([...cart]);
     this.updateItemsCount()
   }
 
+  deleteItem(id: number) {
+    const cart: Array<CartItem> = this.cart.value;
+    const updatedCart = cart.filter(item => item.id !== id);
+
+    this.cart.next([...updatedCart]);
+    this.updateItemsCount();
+  }
 }
