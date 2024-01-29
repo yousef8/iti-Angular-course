@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { CartItem } from '../interfaces/cart-item';
-import { BehaviorSubject, map, reduce } from 'rxjs';
+import { BehaviorSubject, Observable, map, reduce } from 'rxjs';
 import { Product } from '../interfaces/product';
 
 @Injectable({
@@ -17,6 +17,12 @@ export class CartService {
 
   getItemsCount() {
     return this.itemsCount.asObservable();
+  }
+
+  getCartTotalPrice(): Observable<number> {
+    return this.cart.pipe(
+      map(cart => cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0))
+    );
   }
 
   private updateItemsCount() {
