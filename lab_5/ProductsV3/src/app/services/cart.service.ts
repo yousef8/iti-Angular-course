@@ -38,4 +38,17 @@ export class CartService {
     this.cart.next([...cart]);
     this.updateItemsCount();
   }
+
+  incItemQty(id: number) {
+    const cart: Array<CartItem> = this.cart.value;
+    const item: CartItem | undefined = cart.find(item => item.id === id);
+    if (item == undefined) {
+      return;
+    }
+
+    ++item.quantity;
+    this.cart.next([...cart]);
+    this.updateItemsCount()
+  }
+
 }

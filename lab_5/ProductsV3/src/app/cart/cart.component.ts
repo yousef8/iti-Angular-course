@@ -17,4 +17,7 @@ export class CartComponent {
     this.cartService.getCart().subscribe((cart: CartItem[]) => { this.cart = cart });
   }
 
+  incrementItemQty(id: number) {
+    this.cartService.incItemQty(id);
+  }
 }
