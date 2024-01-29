@@ -22,4 +22,8 @@ export class NavBarComponent {
   routeToLogin() {
     this.router.navigate(['/login']);
   }
+
+  routeToCart() {
+    this.router.navigate(['/cart']);
+  }
 }

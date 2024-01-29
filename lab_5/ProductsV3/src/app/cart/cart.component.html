@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div class="items">
+        @for (item of cart; track item.id) {
+        <app-cart-item [item]="item"></app-cart-item>
+        }
+    </div>
+</div>

@@ -23,6 +23,10 @@ export class CartService {
 
   }
 
+  getCart() {
+    return this.cart.asObservable();
+  }
+
   addItem(product: Product) {
     const cart: Array<CartItem> = this.cart.value;
 
