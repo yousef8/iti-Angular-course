@@ -16,13 +16,13 @@ export class CartService {
 
   getItemsCount() {
     return this.cart.pipe(
-      map(cart => cart.reduce((acc, item) => acc + (item.quantity), 0))
+      map(cart => cart.reduce((acc, item) => acc + (item.qty), 0))
     );
   }
 
   getCartTotalPrice(): Observable<number> {
     return this.cart.pipe(
-      map(cart => cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0))
+      map(cart => cart.reduce((acc, item) => acc + (item.price * item.qty), 0))
     );
   }
 
@@ -31,9 +31,9 @@ export class CartService {
     const existingItemIndex = cart.findIndex((item) => item.id === product.id);
 
     if (existingItemIndex === -1) {
-      cart.push({ id: product.id, product, quantity: 1 });
+      cart.push({ ...product, qty: 1, totalPrice: product.price });
     } else {
-      cart[existingItemIndex].quantity++;
+      cart[existingItemIndex].qty++;
     }
 
     this.cart.next([...cart]);
@@ -46,7 +46,7 @@ export class CartService {
       return;
     }
 
-    ++item.quantity;
+    ++item.qty;
     this.cart.next([...cart]);
   }
 
@@ -57,12 +57,12 @@ export class CartService {
       return;
     }
 
-    if (item.quantity < 2) {
+    if (item.qty < 2) {
       this.deleteItem(id);
       return;
     }
 
-    --item.quantity;
+    --item.qty;
     this.cart.next([...cart]);
   }
 
