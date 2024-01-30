@@ -12,7 +12,7 @@ import { CartService } from '../services/cart.service';
 export class NavBarComponent {
   cartSize: number = 0;
   constructor(private router: Router, private cart: CartService) {
-    this.cart.getItemsCount().subscribe((size) => (this.cartSize = size));
+    this.cart.getItemsCount().subscribe((size) => this.cartSize = size);
   }
 
   routeToRegister() {

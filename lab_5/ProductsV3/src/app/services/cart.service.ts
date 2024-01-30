@@ -9,26 +9,21 @@ import { Product } from '../interfaces/product';
 })
 export class CartService {
   private cart: BehaviorSubject<Array<CartItem>> = new BehaviorSubject<Array<CartItem>>([]);
-  private itemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
   getCart() {
     return this.cart.asObservable();
   }
 
   getItemsCount() {
-    return this.itemsCount.asObservable();
+    return this.cart.pipe(
+      map(cart => cart.reduce((acc, item) => acc + (item.quantity), 0))
+    );
   }
 
   getCartTotalPrice(): Observable<number> {
     return this.cart.pipe(
       map(cart => cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0))
     );
-  }
-
-  private updateItemsCount() {
-    const cart = this.cart.value;
-    const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-    this.itemsCount.next(totalCount);
   }
 
   addItem(product: Product) {
@@ -42,7 +37,6 @@ export class CartService {
     }
 
     this.cart.next([...cart]);
-    this.updateItemsCount();
   }
 
   incItemQty(id: number) {
@@ -54,7 +48,6 @@ export class CartService {
 
     ++item.quantity;
     this.cart.next([...cart]);
-    this.updateItemsCount()
   }
 
   decrementItemQty(id: number) {
@@ -71,7 +64,6 @@ export class CartService {
 
     --item.quantity;
     this.cart.next([...cart]);
-    this.updateItemsCount()
   }
 
   deleteItem(id: number) {
@@ -79,6 +71,5 @@ export class CartService {
     const updatedCart = cart.filter(item => item.id !== id);
 
     this.cart.next([...updatedCart]);
-    this.updateItemsCount();
   }
 }
