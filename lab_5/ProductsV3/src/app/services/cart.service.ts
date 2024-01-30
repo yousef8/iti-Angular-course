@@ -34,6 +34,7 @@ export class CartService {
       cart.push({ ...product, qty: 1, totalPrice: product.price });
     } else {
       cart[existingItemIndex].qty++;
+      this.updateItemTotalPrice(cart, cart[existingItemIndex].id);
     }
 
     this.cart.next([...cart]);
@@ -47,6 +48,7 @@ export class CartService {
     }
 
     ++item.qty;
+    this.updateItemTotalPrice(cart, item.id);
     this.cart.next([...cart]);
   }
 
@@ -63,6 +65,7 @@ export class CartService {
     }
 
     --item.qty;
+    this.updateItemTotalPrice(cart, item.id);
     this.cart.next([...cart]);
   }
 
@@ -71,5 +74,16 @@ export class CartService {
     const updatedCart = cart.filter(item => item.id !== id);
 
     this.cart.next([...updatedCart]);
+  }
+
+  private updateItemTotalPrice(cart: Array<CartItem>, id: number) {
+    let itemToUpdate: CartItem | undefined = cart.find((item) => item.id === id);
+
+    if (itemToUpdate === undefined) {
+      return;
+    }
+
+    itemToUpdate.totalPrice = itemToUpdate.price * itemToUpdate.qty;
+    return;
   }
 }
