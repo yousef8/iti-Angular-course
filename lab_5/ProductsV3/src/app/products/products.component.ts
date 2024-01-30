@@ -17,6 +17,6 @@ export class ProductsComponent {
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.getList().subscribe((elem: ProductApiResponse) => { this.products = elem.products });
+    this.productsService.getProductList().subscribe((elem: ProductApiResponse) => { this.products = elem.products });
   }
 }

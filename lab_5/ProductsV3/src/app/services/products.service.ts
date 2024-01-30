@@ -12,11 +12,11 @@ export class ProductsService {
   constructor(private fetch: HttpClient) {
   }
 
-  getList(): Observable<ProductApiResponse> {
+  getProductList(): Observable<ProductApiResponse> {
     return this.fetch.get<ProductApiResponse>('https://dummyjson.com/products');
   }
 
-  getGameDetails(id: number): Observable<Product> {
+  getProduct(id: number): Observable<Product> {
     return this.fetch.get<Product>(`https://dummyjson.com/products/${id}`);
   }
 }

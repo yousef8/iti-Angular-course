@@ -21,7 +21,7 @@ export class ProductDetailsComponent {
   }
 
   ngOnInit() {
-    this.productsService.getGameDetails(this.id).subscribe((product) => { this.product = product });
+    this.productsService.getProduct(this.id).subscribe((product) => { this.product = product });
   }
 
   addToCart() {
