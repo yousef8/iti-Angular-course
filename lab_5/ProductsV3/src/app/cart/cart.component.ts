@@ -19,16 +19,4 @@ export class CartComponent {
     this.cartService.getCart().subscribe((cart: CartItem[]) => { this.cart = cart });
     this.cartService.getCartTotalPrice().subscribe((price: number) => { this.cartPrice = price })
   }
-
-  incrementItemQty(id: number) {
-    this.cartService.incItemQty(id);
-  }
-
-  decrementItemQty(id: number) {
-    this.cartService.decrementItemQty(id);
-  }
-
-  deleteItem(id: number) {
-    this.cartService.deleteItem(id);
-  }
 }
