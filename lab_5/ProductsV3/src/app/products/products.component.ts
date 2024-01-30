@@ -14,9 +14,7 @@ import { ProductApiResponse } from '../interfaces/product-api-response';
 export class ProductsComponent {
   products!: Array<Product>;
 
-  constructor(private productsService: ProductsService) { }
-
-  ngOnInit() {
+  constructor(private productsService: ProductsService) {
     this.productsService.getProductList().subscribe((elem: ProductApiResponse) => { this.products = elem.products });
   }
 }
