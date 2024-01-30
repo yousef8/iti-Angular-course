@@ -11,11 +11,13 @@
         <h4>{{item.quantity}}</h4>
         <button (click)="decrement()" type="button" class="btn btn-secondary"><i class="fa-solid fa-minus"></i></button>
     </div>
-    <div class="delete">
-        <button (click)="delete()" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-    </div>
 
     <div class="price">
         <h4>{{item.product.price | currency}}</h4>
     </div>
+
+    <div class="delete">
+        <button (click)="delete()" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+    </div>
+
 </div>
