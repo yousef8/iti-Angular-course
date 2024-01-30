@@ -4,6 +4,7 @@ import { CurrencyPipe, PercentPipe } from '@angular/common';
 import { RatingComponent } from '../rating/rating.component';
 import { Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -14,13 +15,21 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductDetailsComponent {
   @Input() id!: number;
-  product?: Product;
+  product!: Product;
 
-  constructor(private router: Router, private productsService: ProductsService) {
+  constructor(private router: Router, private productsService: ProductsService, private cart: CartService) {
   }
 
   ngOnInit() {
     this.productsService.getGameDetails(this.id).subscribe((product) => { this.product = product });
+  }
+
+  addToCart() {
+    this.cart.addItem(this.product);
+  }
+
+  routeToCart() {
+    this.router.navigate(['/cart']);
   }
 
 }
