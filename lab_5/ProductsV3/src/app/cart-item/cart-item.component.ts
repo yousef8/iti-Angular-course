@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartItem } from '../interfaces/cart-item';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-item',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.css'
 })
